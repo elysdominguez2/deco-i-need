@@ -1,0 +1,13 @@
+.navbar {
+    justify-content: end;
+}
+
+.nav-link {
+    color: #77d5e4;
+    font-size: 20px;
+    
+}
+
+a:hover {
+    color: #fa66c4;
+  }
