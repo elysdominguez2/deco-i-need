@@ -3,6 +3,8 @@ import logo from './logoD.png';
 import './App.css';
 import NavBar from './componentes/NavBar.js'
 import Home from './componentes/Home.js'
+import AgregarProducto from './componentes/AgregarProducto';
+
 
 
 function App() {
@@ -11,12 +13,12 @@ function App() {
       <NavBar/>
       <Home name="Elys"/>
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Esto es DECO I NEED
-        </p>
         
       </header>
+
+      <body className="App-body">
+      <AgregarProducto/>
+      </body>
     </div>
   );
 }
