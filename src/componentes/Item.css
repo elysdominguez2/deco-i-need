@@ -1,0 +1,14 @@
+
+.probando li{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: larger;
+    
+
+}
+.probando p{
+    font-size: small;
+    margin-bottom: 0;
+}

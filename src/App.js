@@ -3,8 +3,6 @@ import logo from './logoD.png';
 import './App.css';
 import NavBar from './componentes/NavBar.js'
 import Home from './componentes/Home.js'
-import AgregarProducto from './componentes/AgregarProducto';
-
 
 
 function App() {
@@ -17,7 +15,7 @@ function App() {
       </header>
 
       <body className="App-body">
-      <AgregarProducto/>
+      
       </body>
     </div>
   );
