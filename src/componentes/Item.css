@@ -1,5 +1,5 @@
 
-.probando li{
+.prodItems li{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,7 +8,7 @@
     
 
 }
-.probando p{
+.prodItems p{
     font-size: small;
     margin-bottom: 0;
 }

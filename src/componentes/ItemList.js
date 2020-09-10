@@ -48,20 +48,4 @@ function obtenerProductos() {
 
 
 
-/*const task = new Promise ((resolver, rejectar)=>{
-    setTimeout(()=>{
-        const data = [
-            {id: 'almohadon', name:'cactus', description:'almohadon pintado con cactus', stock: 10},
-            {id: 'alfombra', name:'maline', description:'alfombra bordada varios colores', stock: 5},
-            {id: 'cobertor', name:'feliz', description:'cobertor tejido o manta artesanal', stock: 10},
-            {id: 'florero', name:'frodo', description:'florero de color', stock: 6},
-            {id: 'portallaves', name:'llaveria', description:'portallaves divertido', stock: 8}
-        ]
-        resolver (data);
-    }, 3000);
-    //rejectar ('Mensaje de error');
-});
 
-task.then((resultado)=>{
-    console.log(resultado);
-});*/
