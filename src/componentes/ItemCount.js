@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Button from './Button';
 import './ItemCount.css'
+import CountGlobal from './prueba';
 
 function ItemCount(props) {
 
@@ -33,9 +34,6 @@ function ItemCount(props) {
             <Button onClick={restar} sign={"-"}/>
             <h4>{counter}</h4>
             <Button onClick={sumar} sign={"+"}/>
-            
-            
-
         </div>
     );
 };

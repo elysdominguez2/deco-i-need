@@ -1,0 +1,28 @@
+.prodItems{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.prodItems li{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+.prodItems p{
+    font-size: small;
+    margin-bottom: 0;
+}
+
+.prodItems h5{
+    padding: 0;
+}
+
+.btn{
+
+margin: 5px;
+}
