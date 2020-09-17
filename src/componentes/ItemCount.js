@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Button from './Button';
 import './ItemCount.css'
-import CountGlobal from './prueba';
 
 function ItemCount(props) {
 

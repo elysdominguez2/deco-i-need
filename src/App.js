@@ -1,22 +1,30 @@
 import React from 'react';
-import logo from './logoD.png';
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import './App.css';
 import NavBar from './componentes/NavBar.js'
 import Home from './componentes/Home.js'
+import ItemsList from './componentes/ItemList.js'
+import ItemDetailCont from './componentes/ItemDetailContainer';
+
 
 
 function App() {
   return (
     <div className="App">
-      <NavBar/>
-      <Home name="Elys"/>
-      <header className="App-header">
-        
-      </header>
+      <BrowserRouter>
+        <NavBar/>
+        <Switch>
+          <Route exact path="/">
+            <Home name="Elys"/>
+            <ItemsList/>
+          </Route>
+          <Route path="/item/:id">
+            <ItemDetailCont/>
 
-      <body className="App-body">
-      
-      </body>
+          </Route>
+        
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }

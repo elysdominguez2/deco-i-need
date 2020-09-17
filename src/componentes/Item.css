@@ -1,14 +1,24 @@
+.card-deck{
+    margin: 1px;
+    margin-bottom: 10px;
+}
 
-.prodItems li{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: larger;
-    
+.card-body{
+
+    text-align: center;
+    background-color: #fceef4;
 
 }
-.prodItems p{
-    font-size: small;
-    margin-bottom: 0;
+
+.card-body h3{
+    margin: 0;
+}
+
+.card-body h4{
+    margin: 0;
+    background-color: #fceef4;
+}
+
+.card-body button{
+    margin-left: 60px;
 }

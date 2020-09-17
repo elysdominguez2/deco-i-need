@@ -23,14 +23,18 @@ function ItemsList() {
       });
       if (loading) {
         return (
+          <div className="esperar">
           <Loading/>
+          </div>
         );
       } else {
         if (!error) {
           return (
             <ul className="productos">
               {productos.map((producto) => (
+                <div key={producto.id}>
                 <Item producto={producto} />
+                </div>
               ))}
             </ul>  
           );

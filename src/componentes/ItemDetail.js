@@ -6,20 +6,23 @@ import Comprar from "./ContadorGlobal";
 
       
    function ItemDetail(props) {  
-     return (  
-       <div className= "prodItems">  
-         <li>
-            <div key={props.prod.id}>
-                <div>{props.prod.foto}</div> 
-                <h3>{props.prod.nombre} {props.prod.id}</h3> 
-                <p>{props.prod.descripcion}</p> 
-                <p>Stock : {props.prod.stock}</p>
-                <h5>${props.prod.precio}</h5>
+     return ( 
+       
+      <div class="products-list-container">
+            <div className="container" key={props.prod.id}>
+                <div className="product-image">{props.prod.foto}</div>
+                <div className="product-info"> 
+                  <h3 className="product-name">{props.prod.nombre} {props.prod.id}</h3> 
+                  <p className="texto">{props.prod.descripcion}</p> 
+                  <p className="texto">Stock : {props.prod.stock}</p>
+                  <h5 className="product-price">${props.prod.precio}</h5>
+                  <ItemCount max={props.prod.stock} min="0"/>
+                  <Comprar/>
+                </div> 
             </div>
-        </li>
-         <ItemCount max={props.prod.stock} min="0"/>
-         <Comprar/>
-       </div>  
+        </div>
+         
+        
      );  
    };
 

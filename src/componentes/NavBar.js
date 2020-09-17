@@ -1,13 +1,14 @@
 import React from 'react';
 import './NavBar.css';
 import CartIcon from './CartIcon';
+import logo from './imagenes/logoD.png';
 
 
 class NavBar extends React.Component {
     render() {
       return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a className="navbar-brand" href="#">Deco I Need</a>
+            <a className="navbar-brand" href="#"><img src={logo}/></a>
 
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
