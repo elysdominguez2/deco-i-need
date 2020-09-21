@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {useParams} from 'react-router-dom';
 import Almohadon1 from './imagenes/almohadon1.png';
 import Alfombra1 from './imagenes/alfombra1.png';
 import Cobertor1 from './imagenes/cobertor1.png';
@@ -7,13 +8,16 @@ import Portallaves1 from './imagenes/portallaves1.png';
 import Loading from './Loading';
 import ItemDetail from './ItemDetail';
 import './ItemDetailContainer.css';
+import Ejemplo from './VerMas';
+
 
 function ItemDetailCont() {
     const [producto, setProducto] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
+    let {id} = useParams();
    
-    obtenerUnProducto()
+    obtenerProductos()
       .then((producto) => {
         setLoading(false);
         setProducto(producto);
@@ -30,20 +34,25 @@ function ItemDetailCont() {
       } else {
         if (!error) {
           return (
+            <div>
+
+
             <ul className="producto">
-              {producto.map((prod) => (
+              {producto.filter(p => p.id == id).map((prod) => (
                 <div key={prod.id}>
                 <ItemDetail prod={prod}/>
                 </div>
               ))}
             </ul>
+            </div>
+            
           );
         } else return <span>{error}</span>;
       }
      
   }
   
-function obtenerUnProducto() {                                                                                          
+function obtenerProductos() {                                                                                          
      return new Promise((resolve, reject) => {                            
          setTimeout(() => {                                                 
            resolve([ 

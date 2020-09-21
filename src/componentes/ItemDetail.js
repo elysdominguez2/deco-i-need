@@ -1,7 +1,8 @@
 import React from "react";
+import {NavLink} from 'react-router-dom';
 import ItemCount from "./ItemCount";
 import './ItemDetail.css';
-import Comprar from "./ContadorGlobal";
+import Agregar from "./ContadorGlobal";
 
 
       
@@ -17,7 +18,10 @@ import Comprar from "./ContadorGlobal";
                   <p className="texto">Stock : {props.prod.stock}</p>
                   <h5 className="product-price">${props.prod.precio}</h5>
                   <ItemCount max={props.prod.stock} min="0"/>
-                  <Comprar/>
+                  <Agregar/>
+                  <button className="btn btn-dark">
+                    <NavLink to={`/cart`} className="nav-link">Comprar ahora</NavLink>
+                  </button>
                 </div> 
             </div>
         </div>

@@ -5,6 +5,8 @@ import NavBar from './componentes/NavBar.js'
 import Home from './componentes/Home.js'
 import ItemsList from './componentes/ItemList.js'
 import ItemDetailCont from './componentes/ItemDetailContainer';
+import Cart from './Cart';
+import Favs from './Favs';
 
 
 
@@ -20,8 +22,14 @@ function App() {
           </Route>
           <Route path="/item/:id">
             <ItemDetailCont/>
-
           </Route>
+          <Route path="/cart">
+            <Cart/>
+          </Route>
+          <Route path="/favs">
+            <Favs/>
+          </Route>
+
         
         </Switch>
       </BrowserRouter>

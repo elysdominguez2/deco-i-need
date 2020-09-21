@@ -1,6 +1,6 @@
 import React from "react";
 
-function Comprar() {
+function Agregar() {
     function handleClick(e) {
       e.preventDefault();
       console.log('Se agregó al carrito');
@@ -8,11 +8,12 @@ function Comprar() {
   
     return (
         <div>
-            <button className="btn btn-dark" href="#" onClick={handleClick}>
+            <button className="btn btn-dark nav-link" href="#" onClick={handleClick}>
                 Agregar al carrito
             </button>
         </div>
     );
   }
 
-  export default Comprar;
+  export default Agregar;
+  
