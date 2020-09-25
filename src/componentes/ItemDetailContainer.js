@@ -8,7 +8,7 @@ import Portallaves1 from './imagenes/portallaves1.png';
 import Loading from './Loading';
 import ItemDetail from './ItemDetail';
 import './ItemDetailContainer.css';
-import Ejemplo from './VerMas';
+
 
 
 function ItemDetailCont() {
