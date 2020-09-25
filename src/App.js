@@ -29,8 +29,6 @@ function App() {
           <Route path="/favs">
             <Favs/>
           </Route>
-
-        
         </Switch>
       </BrowserRouter>
     </div>

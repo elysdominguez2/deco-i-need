@@ -1,19 +1,17 @@
 import React from "react";
 
-function Agregar() {
-    function handleClick(e) {
-      e.preventDefault();
-      console.log('Se agregó al carrito');
+function BotonAgregar(props) {
+
+    function handleClick() {
+        console.log('agregar al carrito');
     }
   
     return (
-        <div>
-            <button className="btn btn-dark nav-link" href="#" onClick={handleClick}>
-                Agregar al carrito
-            </button>
-        </div>
+        <button className="btn btn-dark" onClick={handleClick}>
+          Agregar {props.count} al carrito
+        </button>
     );
   }
 
-  export default Agregar;
+  export default BotonAgregar;
   

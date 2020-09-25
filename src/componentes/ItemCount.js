@@ -1,38 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Button from './Button';
 import './ItemCount.css'
 
 function ItemCount(props) {
 
-    const [counter, setCounter] = useState(0);
+    const counter= props.count;
+    const handleSumar= props.sumar;
+    const handleRestar= props.restar;
 
-    const sumar = () => {
-        if (counter >= props.max){
-            return;
-        }else{
-        setCounter ((prevCounter) =>
-        {return prevCounter +1;
-        
-        });
-    }
-};
-
-    const restar = () => {
-        if (counter <= props.min){
-            return;
-        }else{
-        setCounter ((prevCounter) =>
-        {return prevCounter -1;
-           
-        });
-    }
-};
-    
     return (
         <div className= "botonProducto">
-            <Button onClick={restar} sign={"-"}/>
+            <Button onClick={handleRestar} sign={"-"}/>
             <h4>{counter}</h4>
-            <Button onClick={sumar} sign={"+"}/>
+            <Button onClick={handleSumar} sign={"+"}/>
         </div>
     );
 };
