@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import {NavLink} from 'react-router-dom';
 import ItemCount from "./ItemCount";
 import './ItemDetail.css';
 import BotonAgregar from "./ContadorGlobal";
 
 
+
 function ItemDetail(props) {
 
   const [count, setCount] = useState(0);
-
-
+ 
   const realizarSuma = () => {
     const max= props.prod.stock;
     if (count >= max){
@@ -33,10 +33,9 @@ function ItemDetail(props) {
     });
 }
 };
-
   return (
       
-        <div class="products-list-container">
+        <div className  ="products-list-container">
             <div className="container" key={props.prod.id}>
                 <div className="product-image">{props.prod.foto}</div>
                 <div className="product-info"> 
@@ -45,7 +44,9 @@ function ItemDetail(props) {
                   <p className="texto">Stock : {props.prod.stock}</p>
                   <h5 className="product-price">${props.prod.precio}</h5>
                   <ItemCount count={count} sumar={realizarSuma} restar={realizarResta}/>
-                  <BotonAgregar count={count}/>
+                  
+                  <BotonAgregar id={props.prod.id} count={count}/>
+                  
                   <button className="btn btn-dark">
                     <NavLink to={`/cart`} className="nav-link">Comprar ahora</NavLink>
                   </button>

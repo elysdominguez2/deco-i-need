@@ -5,13 +5,15 @@ import NavBar from './componentes/NavBar.js'
 import Home from './componentes/Home.js'
 import ItemsList from './componentes/ItemList.js'
 import ItemDetailCont from './componentes/ItemDetailContainer';
-import Cart from './Cart';
+import Cart from './componentes/Cart';
 import Favs from './Favs';
+import { CartProvider } from './context/cartContext';
 
 
 
 function App() {
   return (
+    <CartProvider>
     <div className="App">
       <BrowserRouter>
         <NavBar/>
@@ -20,18 +22,21 @@ function App() {
             <Home name="Elys"/>
             <ItemsList/>
           </Route>
-          <Route path="/item/:id">
-            <ItemDetailCont/>
-          </Route>
-          <Route path="/cart">
-            <Cart/>
-          </Route>
+          
+            <Route path="/item/:id">
+              <ItemDetailCont/>
+            </Route>
+            <Route path="/cart">
+              <Cart/>
+            </Route>
+          
           <Route path="/favs">
             <Favs/>
           </Route>
         </Switch>
       </BrowserRouter>
     </div>
+    </CartProvider>
   );
 }
 
