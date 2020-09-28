@@ -49,9 +49,6 @@ const Cart = () =>{
                 
               ))}
             </ul>
-            
-            <br></br>
-            <span>Total price:0</span>
         </div>
     )
 }
