@@ -29,27 +29,26 @@ const Cart = () =>{
                 </div>
             </div>
         )
-    };
+    } else {
 
+        return(
+            <div className="container">
+                <h2 className="titulo">Mi carrito</h2>
+                <span>Total de productos en el carrito: {newTotalCount}</span>
+                <ul className="list-group">
+                    {prodList.map((producto) => ( 
+                        <div key={producto.id}>
+                            <li className="list-group-item d-flex justify-content-between align-items-center">
+                                {producto.id}
+                                <span className="badge badge-dark badge-pill">{producto.count}</span>
+                            </li>
+                        </div>
+                  ))}
+                </ul>
+            </div>
+        )
 
+    }
 
-
-    return(
-        <div className="container">
-            <h2 className="titulo">Mi carrito</h2>
-            <span>Total de productos en el carrito: {newTotalCount}</span>
-            <ul className="list-group">
-            {prodList.map((producto) => ( 
-                <div key={producto.id}>
-                <li className="list-group-item d-flex justify-content-between align-items-center">
-                {producto.id}
-                <span className="badge badge-dark badge-pill">{producto.count}</span>
-                </li>
-                </div>
-                
-              ))}
-            </ul>
-        </div>
-    )
 }
 export default Cart;
