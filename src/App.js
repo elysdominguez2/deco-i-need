@@ -8,6 +8,8 @@ import ItemDetailCont from './componentes/ItemDetailContainer';
 import Cart from './componentes/Cart';
 import Favs from './Favs';
 import { CartProvider } from './context/cartContext';
+import CategoryList from './componentes/CategoryList';
+
 
 
 
@@ -22,17 +24,22 @@ function App() {
             <Home name="Elys"/>
             <ItemsList/>
           </Route>
-          
-            <Route path="/item/:id">
-              <ItemDetailCont/>
-            </Route>
-            <Route path="/cart">
-              <Cart/>
-            </Route>
+
+          <Route path="/item/:id">
+            <ItemDetailCont/>
+          </Route>
+          <Route path="/cart">
+            <Cart/>
+          </Route>
           
           <Route path="/favs">
             <Favs/>
           </Route>
+
+          <Route path="/category/:id">
+              <CategoryList/>
+            </Route>
+
         </Switch>
       </BrowserRouter>
     </div>

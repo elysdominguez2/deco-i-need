@@ -3,6 +3,7 @@ import {NavLink} from 'react-router-dom';
 import './NavBar.css';
 import CartIcon from './CartIcon';
 import logo from './imagenes/logoD.png';
+import Category from './Category';
 
 
 class NavBar extends React.Component {
@@ -29,9 +30,7 @@ class NavBar extends React.Component {
                     Productos
                     </a>
                     <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a className="dropdown-item" href="#">Arte</a>
-                    <a className="dropdown-item" href="#">Objetos</a>
-                    <a className="dropdown-item" href="#">Muebles</a>
+                    <Category/>
                     </div>
                 </li>
                 <li className="nav-item">

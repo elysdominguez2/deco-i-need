@@ -1,19 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import { getFirestore } from '../firebase/index.js'
+import { getFirestore } from '../firebase/index.js';
+import {useParams} from 'react-router-dom';
 import Item from "./Item";
 import './ItemList.css';
 import Loading from './Loading';
 
-function ItemsList() {
+function CategoryList() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
     const [items, setItems] = useState([]);
+    let {id} = useParams();
 
      useEffect(() => {
        setLoading(true);
        const db = getFirestore();
-       const itemCollection = db.collection("items")
-       itemCollection.get()
+       const itemCollection = db.collection("items");
+       const catObjetos = itemCollection.where("category", "==", id);
+
+       catObjetos.get()
        .then((querySnapshot) => {
          if(querySnapshot.size === 0) {
            console.log('No results!');
@@ -49,4 +53,4 @@ function ItemsList() {
      }
     }
     
-export default ItemsList;
+export default CategoryList;

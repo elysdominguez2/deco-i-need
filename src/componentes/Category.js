@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import {NavLink} from 'react-router-dom';
 import { getFirestore } from '../firebase/index.js'
-import Item from "./Item";
-import './ItemList.css';
-import Loading from './Loading';
 
-function ItemsList() {
+function Category() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
     const [items, setItems] = useState([]);
@@ -12,7 +10,7 @@ function ItemsList() {
      useEffect(() => {
        setLoading(true);
        const db = getFirestore();
-       const itemCollection = db.collection("items")
+       const itemCollection = db.collection("category")
        itemCollection.get()
        .then((querySnapshot) => {
          if(querySnapshot.size === 0) {
@@ -34,19 +32,27 @@ function ItemsList() {
            <div className="productos">
              {items.map(producto => (
               <div key={producto.id}>
-              <Item producto={producto} />
+                 
+                <a className="dropdown-item" href="#"><NavLink to={`/category/${producto.category}`}>{producto.name}</NavLink></a>
+                         
               </div>
             ))}
           </div>
        );
      }
      if (loading) {
-       return(
-          <div className="esperar">
-           <Loading/>
-         </div>
-       );
-     }
+      return(
+         <div className="esperar"></div>
+      );
+    }
     }
     
-export default ItemsList;
+export default Category;
+
+
+
+
+
+
+
+

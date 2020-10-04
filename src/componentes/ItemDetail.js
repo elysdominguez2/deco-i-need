@@ -11,7 +11,7 @@ function ItemDetail(props) {
   const [count, setCount] = useState(0);
  
   const realizarSuma = () => {
-    const max= props.prod.stock;
+    const max= props.producto.stock;
     if (count >= max){
         return;
     }else{
@@ -36,16 +36,16 @@ function ItemDetail(props) {
   return (
       
         <div className  ="products-list-container">
-            <div className="container" key={props.prod.id}>
-                <div className="product-image">{props.prod.foto}</div>
+            <div className="container" key={props.producto.id}>
+                <img className="product-image" src={props.producto.img} alt="..."/>
                 <div className="product-info"> 
-                  <h3 className="product-name">{props.prod.nombre} {props.prod.id}</h3> 
-                  <p className="texto">{props.prod.descripcion}</p> 
-                  <p className="texto">Stock : {props.prod.stock}</p>
-                  <h5 className="product-price">${props.prod.precio}</h5>
+                  <h3 className="product-name"> {props.producto.name} {props.producto.title}</h3> 
+                  <p className="texto">{props.producto.description}</p> 
+                  <p className="texto">Stock : {props.producto.stock}</p>
+                  <h5 className="product-price">${props.producto.price}</h5>
                   <ItemCount count={count} sumar={realizarSuma} restar={realizarResta}/>
                   
-                  <BotonAgregar id={props.prod.id} count={count}/>
+                  <BotonAgregar id={props.producto.id} count={count}/>
                   
                   <button className="btn btn-dark">
                     <NavLink to={`/cart`} className="nav-link">Comprar ahora</NavLink>

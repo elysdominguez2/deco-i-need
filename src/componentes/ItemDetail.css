@@ -8,7 +8,7 @@
 
   }
 
-  .products-list-container .product-image img {
+  .products-list-container .product-image {
     width: 100%;
     height: 300px;
     object-fit: contain;
