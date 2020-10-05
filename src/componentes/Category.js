@@ -5,18 +5,18 @@ import { getFirestore } from '../firebase/index.js'
 function Category() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
-    const [items, setItems] = useState([]);
+    const [categories, setCategories] = useState([]);
 
      useEffect(() => {
        setLoading(true);
        const db = getFirestore();
-       const itemCollection = db.collection("category")
-       itemCollection.get()
+       const categoryCollection = db.collection("category")
+       categoryCollection.get()
        .then((querySnapshot) => {
          if(querySnapshot.size === 0) {
            console.log('No results!');
          }
-         setItems(querySnapshot.docs.map(doc => {
+         setCategories(querySnapshot.docs.map(doc => {
             return({ id: doc.id, ...doc.data()});
        }));  
        }).catch((error) => {
@@ -27,13 +27,13 @@ function Category() {
      }, []);
 
      if (!loading) {
-       console.log(items)
+       console.log(categories)
        return(
            <div className="productos">
-             {items.map(producto => (
-              <div key={producto.id}>
+             {categories.map(category => (
+              <div key={category.id}>
                  
-                <a className="dropdown-item" href="#"><NavLink to={`/category/${producto.category}`}>{producto.name}</NavLink></a>
+                <a className="dropdown-item" href="#"><NavLink to={`/category/${category.category}`}>{category.name}</NavLink></a>
                          
               </div>
             ))}

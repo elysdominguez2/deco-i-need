@@ -13,6 +13,7 @@ import CategoryList from './componentes/CategoryList';
 
 
 
+
 function App() {
   return (
     <CartProvider>

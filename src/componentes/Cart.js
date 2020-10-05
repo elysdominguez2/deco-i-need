@@ -13,7 +13,7 @@ const Cart = () =>{
         newTotalCount=newTotalCount + cart[productId];
         prodList.push({id: productId, count: cart[productId]});
     }
-    if(newTotalCount == 0){
+    if(newTotalCount === 0){
         return (
             <div className="cart">
                 <div className="container">
