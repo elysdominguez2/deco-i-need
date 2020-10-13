@@ -6,6 +6,7 @@ import BotonAgregar from "./ContadorGlobal";
 
 
 
+
 function ItemDetail(props) {
 
   const [count, setCount] = useState(0);

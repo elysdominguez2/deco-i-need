@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {NavLink} from 'react-router-dom';
 import { getFirestore } from '../firebase/index.js'
 
+
 function Category() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
@@ -33,8 +34,8 @@ function Category() {
              {categories.map(category => (
               <div key={category.id}>
                  
-                <a className="dropdown-item" href="#"><NavLink to={`/category/${category.category}`}>{category.name}</NavLink></a>
-                         
+                <NavLink className="dropdown-item" to={`/category/${category.category}`}>{category.name}</NavLink>
+                 
               </div>
             ))}
           </div>

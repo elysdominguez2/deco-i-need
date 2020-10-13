@@ -9,6 +9,9 @@ import Cart from './componentes/Cart';
 import Favs from './Favs';
 import { CartProvider } from './context/cartContext';
 import CategoryList from './componentes/CategoryList';
+import PageNotFound from './componentes/PageNotFound';
+import Login from './componentes/InfoCart';
+import { InfoProvider } from './context/infoContext';
 
 
 
@@ -16,6 +19,7 @@ import CategoryList from './componentes/CategoryList';
 
 function App() {
   return (
+    <InfoProvider>
     <CartProvider>
     <div className="App">
       <BrowserRouter>
@@ -39,12 +43,22 @@ function App() {
 
           <Route path="/category/:id">
               <CategoryList/>
-            </Route>
+          </Route>
+
+          <Route path="/login">
+              <Login/>
+          </Route>
+
+          
+
+          <Route component={PageNotFound}/>
+          
 
         </Switch>
       </BrowserRouter>
     </div>
     </CartProvider>
+    </InfoProvider>
   );
 }
 

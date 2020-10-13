@@ -4,6 +4,7 @@ import {CartContext} from '../context/cartContext';
 import './Cart.css'
 import Vacio from './imagenes/carritovacio.png';
 
+
 const Cart = () =>{
     const [agregarCarrito, cart] =useContext(CartContext);
 
@@ -45,6 +46,12 @@ const Cart = () =>{
                         </div>
                   ))}
                 </ul>
+                <button className="btn btn-dark">
+                            <NavLink to={`/login`} className="nav-link">Pagar</NavLink>
+                </button>
+
+                
+                
             </div>
         )
 
