@@ -9,7 +9,8 @@ function CartIcon(props) {
 
   let newTotalCount=0;
     for (const productId in cart) {
-        newTotalCount=newTotalCount + cart[productId];
+      const [name, price, count] = cart[productId];
+      newTotalCount = newTotalCount + count;
     }
 
       return (

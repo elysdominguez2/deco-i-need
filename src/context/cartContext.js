@@ -5,7 +5,7 @@ const CartContext = React.createContext([]);
 const CartProvider = (props) =>{
     const [cart, setCart] = useState({});
 
-    const agregarCarrito = (id, count) => {
+    const agregarCarrito = (id, name, price, count) => {
 
         console.log('agregando '+ count+ ' ' + id + ' al carrito');
 
@@ -16,7 +16,7 @@ const CartProvider = (props) =>{
 
 
         let obj = {};
-        obj[id] = count;
+        obj[id] = [name, price, count];
 
         console.log('info nueva para el carrito');
         for (const productId in obj) {
@@ -25,7 +25,7 @@ const CartProvider = (props) =>{
 
         setCart(prevCart => ({
             ...prevCart,
-            [id]: count
+            [id]: [name, price, count]
         }));
 
     };

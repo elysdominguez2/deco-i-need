@@ -1,4 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react';
+
 import {NavLink} from 'react-router-dom';
 import {CartContext} from '../context/cartContext';
 import './Cart.css'
@@ -8,31 +9,24 @@ import { getFirestore } from '../firebase/index.js'
 
 const Cart = () =>{
     const [agregarCarrito, cart] = useContext(CartContext);
+   
     //const [prodInfoList, setProdInfoList] = useState([]);
+    
     //const [prodInfoObj, setProdInfoObj] = useState({});
 
     let newTotalCount=0;
+    let newTotalPrice=0;
     let prodList = [];
     for (const productId in cart) {
 
-        // Con el id que tenes en productId
-        // buscar en la base de datos
-        // el producto con el id productId
+        const [name, price, count] = cart[productId];
+        newTotalCount = newTotalCount + count;
+        newTotalPrice = newTotalPrice + (price * count);
 
-        // Tenés que hacer lo mismo que en ItemDetailContainer
-        // const item = itemCollection.doc(id);
-
-        // Quizás podes hacer
-        // const item = getItem(productId);
-
-        newTotalCount=newTotalCount + cart[productId];
-        ///let ppp = 
-        prodList.push({id: productId, count: cart[productId]});
-        //const product = getItem(productId);
-        //console.log("Producto1: " + product.description);
-        //prodList.push({id: productId, name: item.name, count: cart[productId]});
+        prodList.push({id: productId, name: name, price: price, count: count});
         
     }
+
     if(newTotalCount === 0){
         return (
             <div className="cart">
@@ -55,11 +49,19 @@ const Cart = () =>{
             <div className="container">
                 <h2 className="titulo">Mi carrito</h2>
                 <span>Total de productos en el carrito: {newTotalCount}</span>
+                <span>Precio total de productos en el carrito: {newTotalPrice}</span>
                 <ul className="list-group">
                     {prodList.map((producto) => ( 
                         <div key={producto.id}>
                             <li className="list-group-item d-flex justify-content-between align-items-center">
-                                {producto.id}
+                                <span>{producto.name}</span>
+                                <span>{producto.id}</span>
+                                <span>{producto.price}</span>
+                                <span>{producto.price * producto.count}</span>
+                                
+                               
+
+                                
                                 <span className="badge badge-dark badge-pill">{producto.count}</span>
                             </li>
                         </div>

@@ -1,5 +1,6 @@
 import React, {useState, useContext} from 'react';
 import { InfoContext } from '../context/infoContext';
+import {NavLink} from 'react-router-dom';
 
 
 function Form() {
@@ -30,8 +31,6 @@ function Form() {
     //     window.close();
     // }
 
-      
-      
 
       return(
 
@@ -126,7 +125,7 @@ function Form() {
                                 </div>
 
                                 <button type="submit" className="btn btn-dark" >Crear cuenta</button>
-
+                                
                        
 
                                 </form>

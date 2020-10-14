@@ -46,7 +46,7 @@ function ItemDetail(props) {
                   <h5 className="product-price">${props.producto.price}</h5>
                   <ItemCount count={count} sumar={realizarSuma} restar={realizarResta}/>
                   
-                  <BotonAgregar id={props.producto.id} count={count}/>
+                  <BotonAgregar id={props.producto.id} name={props.producto.name} price={props.producto.price} count={count}/>
                   
                   <button className="btn btn-dark">
                     <NavLink to={`/cart`} className="nav-link">Comprar ahora</NavLink>

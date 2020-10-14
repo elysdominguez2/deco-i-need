@@ -9,7 +9,10 @@ function BotonAgregar(props) {
 
     const enviarACarrito =() =>{
         const producto = props.id;
-        agregarCarrito(producto, props.count);
+        const name = props.name;
+        const price = props.price;
+        
+        agregarCarrito(producto, name, price, props.count);
     }
   
     return (
