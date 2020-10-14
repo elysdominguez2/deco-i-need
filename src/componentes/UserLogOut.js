@@ -4,7 +4,7 @@ import './ItemList.css';
 
 
 function UserLogOut(props) {
-    return <h1>Hola Desconocido!</h1>;
+    return <h5>Hola Desconocido!</h5>;
   }
 
 

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useState, useContext} from 'react';
+import { InfoContext } from '../context/infoContext';
 
 import './ItemList.css';
 import UserLogIn from './UserLogIn';
@@ -7,12 +8,17 @@ import UserLogOut from './UserLogOut';
 
 
 function Login(props) {
-    const isLoggedIn = props.isLoggedIn;
-    if (isLoggedIn) {
-      return <UserLogIn/>;
+    const infoContext = useContext(InfoContext);
 
+    const userName = infoContext.userData.user;
+
+
+    if (infoContext.isLogin) {
+      return <UserLogIn userName={userName}/>;
+
+    } else {
+        return <UserLogOut/>; 
     }
-    return <UserLogOut/>;
   }
   
 

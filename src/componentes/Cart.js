@@ -1,18 +1,37 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {NavLink} from 'react-router-dom';
 import {CartContext} from '../context/cartContext';
 import './Cart.css'
 import Vacio from './imagenes/carritovacio.png';
+import { getFirestore } from '../firebase/index.js'
 
 
 const Cart = () =>{
-    const [agregarCarrito, cart] =useContext(CartContext);
+    const [agregarCarrito, cart] = useContext(CartContext);
+    //const [prodInfoList, setProdInfoList] = useState([]);
+    //const [prodInfoObj, setProdInfoObj] = useState({});
 
     let newTotalCount=0;
     let prodList = [];
     for (const productId in cart) {
+
+        // Con el id que tenes en productId
+        // buscar en la base de datos
+        // el producto con el id productId
+
+        // Tenés que hacer lo mismo que en ItemDetailContainer
+        // const item = itemCollection.doc(id);
+
+        // Quizás podes hacer
+        // const item = getItem(productId);
+
         newTotalCount=newTotalCount + cart[productId];
+        ///let ppp = 
         prodList.push({id: productId, count: cart[productId]});
+        //const product = getItem(productId);
+        //console.log("Producto1: " + product.description);
+        //prodList.push({id: productId, name: item.name, count: cart[productId]});
+        
     }
     if(newTotalCount === 0){
         return (

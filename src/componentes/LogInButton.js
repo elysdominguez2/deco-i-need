@@ -6,7 +6,7 @@ function LogInButton(props) {
 
       return (
         <div>
-            <NavLink to={`/login`} onClick={props.onClick} className="nav-link">Login
+            <NavLink to={`/login`} className="nav-link">Login
             </NavLink>
         </div>
       )

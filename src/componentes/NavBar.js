@@ -7,6 +7,8 @@ import logo from './imagenes/logoD.png';
 import Category from './Category';
 import LogOutButton from './LogOutButton';
 import LogInButton from './LogInButton';
+import Login from './Login';
+import LoginControl from './LoginControl';
 
 
 class NavBar extends React.Component {
@@ -43,13 +45,15 @@ class NavBar extends React.Component {
                 <li className="nav-item">
                     <a className="nav-link" href="#">Ayuda</a>
                 </li>
-                <li className="nav-item">
+                {/* <li className="nav-item">
                     <LogInButton/>
                     <LogOutButton/>
-                </li>
+                </li> */}
 
                 </ul>
             </div>
+
+                <LoginControl/>
 
            <CartIcon/>
            

@@ -6,15 +6,12 @@ function LogOutButton(props) {
 
       return (
         <div>
-            <button onClick={props.onClick} className="nav-link">Cerrar Sesión
-            </button>
+            <NavLink to={`/`} onClick={props.logOut} className="nav-link">Cerrar Sesión
+            </NavLink>
         </div>
       )
       
     }
 
   export default LogOutButton;
-
-  
-  
   

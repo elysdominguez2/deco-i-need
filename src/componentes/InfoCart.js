@@ -19,11 +19,16 @@ function Form() {
         e.preventDefault();
         console.log('mostrar datos:' + data.name, data.user, data.email,  data.pass, data.tel);
         console.log(data);
+        e.target.reset();
         infoContext.setUserData(data);
         console.log(infoContext.test);
         infoContext.setIsLogin(true);
         
       }
+
+    //   function cerrar() {
+    //     window.close();
+    // }
 
       
       
@@ -120,7 +125,9 @@ function Form() {
                                     <label className="form-check-label" htmlFor="check2">Recuerdame</label>
                                 </div>
 
-                                <button type="submit" className="btn btn-dark">Crear cuenta</button>
+                                <button type="submit" className="btn btn-dark" >Crear cuenta</button>
+
+                       
 
                                 </form>
                             </div>
