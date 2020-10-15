@@ -76,9 +76,9 @@ const Cart = () =>{
 
         let button;
       if (infoContext.isLogin) {
-        button = <IdNumber newOrder={newOrder} />;
+        button = <IdNumber  newOrder={newOrder} />;
       }else{
-        button = <NavLink to={`/login`} className="nav-link">Carga tus datos</NavLink>;
+        button = <NavLink to={`/login`} className="btn btn-dark">Carga tus datos</NavLink>;
     }
     
 
@@ -86,21 +86,34 @@ const Cart = () =>{
             <div className="container">
                 <h2 className="titulo">Mi carrito</h2>
                 <span>Total de productos en el carrito: {newTotalCount}</span>
-                <span>Precio total de productos en el carrito: {newTotalPrice}</span>
+                <ul className="list-group">
+                    <li className="list-group-item d-flex justify-content-between align-items-center">
+                        <span>Nombre</span>
+                        <span>Art</span>
+                        <span>Precio</span>
+                        <span> Cant</span>
+                        <span>Sub</span>
+                        
+                    </li>
+                </ul>
+                
+                
                 <ul className="list-group">
                     {prodList.map((producto) => ( 
                         <div key={producto.id}>
                             <li className="list-group-item d-flex justify-content-between align-items-center">
                                 <span>{producto.name}</span>
-                                <span>{producto.id}</span>
-                                <span>{producto.price}</span>
-                                <span>{producto.price * producto.count}</span>
+                                <p>{producto.id}</p>
+                                <span>${producto.price}</span>
                                 <span className="badge badge-dark badge-pill">{producto.count}</span>
+                                <span>${producto.price * producto.count}</span>
+                                
                             </li>
                         </div>
                   ))}
                 </ul>
-            
+                <span>Precio total de productos en el carrito: ${newTotalPrice}</span>
+                <br/>
 
                 {button}
 

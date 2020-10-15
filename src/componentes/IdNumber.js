@@ -20,7 +20,8 @@ export function IdNumber (props){
     orders.add(newOrder)
     .then(({ id }) => {
         setOrderId(id);
-        console.log(id);
+        console.log("Este es tu número de Orden de Compra: " + id);
+        alert("Este es tu número de Orden de Compra: " + id);
     }).catch((error) => {
         setError(error);
     }).finally(() => {
