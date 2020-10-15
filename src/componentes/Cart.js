@@ -5,6 +5,9 @@ import {CartContext} from '../context/cartContext';
 import './Cart.css'
 import Vacio from './imagenes/carritovacio.png';
 import { getFirestore } from '../firebase/index.js'
+import * as firebase from 'firebase/app';
+import 'firebase/firestore';
+import IdNumber from './IdNumber';
 
 
 const Cart = () =>{
@@ -17,6 +20,7 @@ const Cart = () =>{
     let newTotalCount=0;
     let newTotalPrice=0;
     let prodList = [];
+    let prodListDb = [];
     for (const productId in cart) {
 
         const [name, price, count] = cart[productId];
@@ -24,8 +28,29 @@ const Cart = () =>{
         newTotalPrice = newTotalPrice + (price * count);
 
         prodList.push({id: productId, name: name, price: price, count: count});
+        prodListDb.push({id: productId, title: name, price: price});
         
     }
+
+    
+    
+
+    const buyer = {
+        name: "Ely",
+        phone: "1111111",
+        email: "mail@gmail.com"
+    }
+
+    const newOrder = {
+        buyer: buyer,
+        items: prodListDb,
+        date: firebase.firestore.Timestamp.fromDate(new Date()),
+        total: newTotalPrice
+    };
+
+   
+
+
 
     if(newTotalCount === 0){
         return (
@@ -58,18 +83,17 @@ const Cart = () =>{
                                 <span>{producto.id}</span>
                                 <span>{producto.price}</span>
                                 <span>{producto.price * producto.count}</span>
-                                
-                               
-
-                                
                                 <span className="badge badge-dark badge-pill">{producto.count}</span>
                             </li>
                         </div>
                   ))}
                 </ul>
                 <button className="btn btn-dark">
-                            <NavLink to={`/login`} className="nav-link">Pagar</NavLink>
+                            <NavLink to={`/login`} className="nav-link">Carga tus datos</NavLink>
                 </button>
+
+                
+                <IdNumber newOrder={newOrder} />
 
                 
                 
