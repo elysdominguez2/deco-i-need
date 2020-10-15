@@ -1,4 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react';
+import { InfoContext } from '../context/infoContext';
 
 import {NavLink} from 'react-router-dom';
 import {CartContext} from '../context/cartContext';
@@ -12,6 +13,7 @@ import IdNumber from './IdNumber';
 
 const Cart = () =>{
     const [agregarCarrito, cart] = useContext(CartContext);
+    const infoContext = useContext(InfoContext);
    
     //const [prodInfoList, setProdInfoList] = useState([]);
     
@@ -48,6 +50,8 @@ const Cart = () =>{
         total: newTotalPrice
     };
 
+    
+
    
 
 
@@ -70,6 +74,14 @@ const Cart = () =>{
         )
     } else {
 
+        let button;
+      if (infoContext.isLogin) {
+        button = <IdNumber newOrder={newOrder} />;
+      }else{
+        button = <NavLink to={`/login`} className="nav-link">Carga tus datos</NavLink>;
+    }
+    
+
         return(
             <div className="container">
                 <h2 className="titulo">Mi carrito</h2>
@@ -88,12 +100,9 @@ const Cart = () =>{
                         </div>
                   ))}
                 </ul>
-                <button className="btn btn-dark">
-                            <NavLink to={`/login`} className="nav-link">Carga tus datos</NavLink>
-                </button>
+            
 
-                
-                <IdNumber newOrder={newOrder} />
+                {button}
 
                 
                 

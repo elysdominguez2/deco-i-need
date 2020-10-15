@@ -15,9 +15,6 @@ export function IdNumber (props){
 
     const orders = db.collection("orders");
 
-    // const [orderId, setOrderId] = useState([]);
-    // const [loading, setLoading] = useState(true);
-    // const [error, setError] = useState("");
     const newOrder= props.newOrder;
 
     orders.add(newOrder)
