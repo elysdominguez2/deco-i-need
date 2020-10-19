@@ -5,11 +5,13 @@ import { getFirestore } from '../firebase/index.js'
 import Loading from './Loading';
 import ItemDetail from './ItemDetail';
 import './ItemDetailContainer.css';
+import PageNotFound from './PageNotFound.js';
 
 
 
 function ItemDetailCont() {
     const [producto, setProducto] = useState([]);
+    const [productoEncontrado, setProductoEncontrado] = useState(false);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
     let {id} = useParams();
@@ -23,10 +25,14 @@ function ItemDetailCont() {
       item.get()
       .then((doc) => {
         if (!doc.exists){
-          console.log("Este Item no existe!")
+          console.log("Este Item no existe!");
+          setProductoEncontrado(false);
+          
+        } else{
+          console.log("Item encontrado!");
+          setProductoEncontrado(true);
+          setProducto({id:doc.id, ...doc.data()});
         }
-        console.log("Item encontrado!");
-        setProducto({id:doc.id, ...doc.data()});
       })
       .catch((error) => {
         console.log("Error buscando este Item: ", error);
@@ -38,14 +44,23 @@ function ItemDetailCont() {
 
 
     if (!loading) {
+
+      if(productoEncontrado){
+        return(
+          <div key={producto.id} className="producto">
+          <ItemDetail producto={producto} />
+          </div>
+   );
+
+
+      }else{
+        return(
+          <PageNotFound/>
+        )
+
+      }
       
-      return(
-             <div key={producto.id} className="producto">
-             <ItemDetail producto={producto} />
-             </div>
-      );
-    }
-    if (loading) {
+    } else {
       return(
          <div className="esperar">
           <Loading/>

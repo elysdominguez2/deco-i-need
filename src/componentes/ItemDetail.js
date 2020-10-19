@@ -51,6 +51,10 @@ function ItemDetail(props) {
                   <button className="btn btn-dark">
                     <NavLink to={`/cart`} className="nav-link">Comprar ahora</NavLink>
                   </button>
+
+                  <button className="btn btn-dark">
+                    <NavLink to={`/`} className="nav-link">Seguir comprando</NavLink>
+                  </button>
                  
                 </div> 
             </div>

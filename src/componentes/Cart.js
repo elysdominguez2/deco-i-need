@@ -1,6 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react';
 import { InfoContext } from '../context/infoContext';
-
 import {NavLink} from 'react-router-dom';
 import {CartContext} from '../context/cartContext';
 import './Cart.css'
@@ -14,10 +13,6 @@ import IdNumber from './IdNumber';
 const Cart = () =>{
     const [agregarCarrito, cart] = useContext(CartContext);
     const infoContext = useContext(InfoContext);
-   
-    //const [prodInfoList, setProdInfoList] = useState([]);
-    
-    //const [prodInfoObj, setProdInfoObj] = useState({});
 
     let newTotalCount=0;
     let newTotalPrice=0;
@@ -34,27 +29,14 @@ const Cart = () =>{
         
     }
 
+    const buyer = infoContext.userData;
     
-    
-
-    const buyer = {
-        name: "Ely",
-        phone: "1111111",
-        email: "mail@gmail.com"
-    }
-
     const newOrder = {
         buyer: buyer,
         items: prodListDb,
         date: firebase.firestore.Timestamp.fromDate(new Date()),
         total: newTotalPrice
     };
-
-    
-
-   
-
-
 
     if(newTotalCount === 0){
         return (
