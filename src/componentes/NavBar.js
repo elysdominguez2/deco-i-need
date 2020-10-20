@@ -38,17 +38,12 @@ class NavBar extends React.Component {
                     
                         <Category/>
                     
-                    
                     </div>
                    
                 </li>
                 <li className="nav-item">
                     <a className="nav-link" href="#">Ayuda</a>
                 </li>
-                {/* <li className="nav-item">
-                    <LogInButton/>
-                    <LogOutButton/>
-                </li> */}
 
                 </ul>
             </div>
