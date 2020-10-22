@@ -8,8 +8,6 @@ import PageNotFound from './PageNotFound.js';
 
 import './estilos/ItemDetailContainer.css';
 
-
-
 function ItemDetailCont() {
     const [producto, setProducto] = useState([]);
     const [productoEncontrado, setProductoEncontrado] = useState(false);
@@ -49,25 +47,21 @@ function ItemDetailCont() {
       if(productoEncontrado){
         return(
           <div key={producto.id} className="producto">
-          <ItemDetail producto={producto} />
+            <ItemDetail producto={producto}/>
           </div>
-   );
-
-
+        );
       }else{
         return(
           <PageNotFound/>
         )
-
       }
-      
     } else {
       return(
          <div className="esperar">
-          <Loading/>
-        </div>
-      );
+            <Loading/>
+          </div>
+        );
     }
-}
+  }
     
 export default ItemDetailCont;

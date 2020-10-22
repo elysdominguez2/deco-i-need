@@ -26,25 +26,18 @@ function LoginControl() {
     //     let button;
     let button;
       if (infoContext.isLogin) {
-        button = <LogOutButton logOut={handleLogoutClick} />;
-      }else{
-        button = <LogInButton onClick={handleLoginClick} />;
-    }
+          button = <LogOutButton logOut={handleLogoutClick}/>;
+        }else{
+            button = <LogInButton onClick={handleLoginClick}/>;
+          }
     return (
       <div className="saludo">
         {button} 
         <Login/>
-        
       </div>
-    );
-      
-      
-//   }
-
-  
+    );  
+        //   }
   };
-
-
 
 export default LoginControl;
 

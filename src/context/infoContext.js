@@ -5,7 +5,6 @@ export const InfoContext = React.createContext([]);
 
 export const InfoProvider = (props) =>{
     
-    
     const [userData, setUserData] = useState({});
     const [isLogin, setIsLogin] = useState(false);
     //const [newEmail, setNewEmail] = useState();
@@ -21,8 +20,8 @@ export const InfoProvider = (props) =>{
                 usuarioEncontrado = true;
             });
     
-            return usuarioEncontrado;
-        }
+        return usuarioEncontrado;
+    }
 
     const saveUserData = (data) => {
         const db = getFirestore();
@@ -32,7 +31,6 @@ export const InfoProvider = (props) =>{
         if (existeUsuario(data.email)) {
             
         } else {
-
             usuarios.add(data)
             .then(({ id }) => {
                 //setUsuarioId(id);

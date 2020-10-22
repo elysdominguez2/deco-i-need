@@ -1,13 +1,11 @@
 .navbar {
     justify-content: end;
     padding: 0 16px 0 16px;
-    
 }
 
 .nav-link {
     color: #77d5e4;
-    font-size: 20px;
-    
+    font-size: 20px;  
 }
 
 a:hover {
@@ -16,5 +14,5 @@ a:hover {
 
 .navbar-brand img{
   width: 100px;
-
 }
+

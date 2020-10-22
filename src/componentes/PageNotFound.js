@@ -5,7 +5,6 @@ import Llanto from './imagenes/llanto.gif';
 
 import './estilos/PageNotFound.css';
 
-
 const PageNotFound = () => (
 
   <div className= "container">
