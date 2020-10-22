@@ -4,8 +4,9 @@ import { getFirestore } from '../firebase/index.js'
 
 import Loading from './Loading';
 import ItemDetail from './ItemDetail';
-import './ItemDetailContainer.css';
 import PageNotFound from './PageNotFound.js';
+
+import './estilos/ItemDetailContainer.css';
 
 
 
@@ -13,7 +14,7 @@ function ItemDetailCont() {
     const [producto, setProducto] = useState([]);
     const [productoEncontrado, setProductoEncontrado] = useState(false);
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState("");
+    //const [error, setError] = useState("");
     let {id} = useParams();
 
     useEffect (() => {

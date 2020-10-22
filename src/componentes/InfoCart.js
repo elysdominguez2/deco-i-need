@@ -1,8 +1,7 @@
 import React, {useState, useContext} from 'react';
 import { InfoContext } from '../context/infoContext';
 import 'firebase/firestore';
-import * as firebase from 'firebase/app';
-import Prueba from './prueba';
+
 
 
 
@@ -24,11 +23,7 @@ function Form() {
         infoContext.saveUserData(data);
         
       }
-      const buyer = infoContext.userData;
-      const newUsuario = {
-        buyer: buyer
-        
-        };
+    
 
 
       function comprobarEmail(){

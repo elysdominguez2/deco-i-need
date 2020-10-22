@@ -1,21 +1,23 @@
-import React, {useContext, useEffect, useState} from 'react';
-import { InfoContext } from '../context/infoContext';
+import React, {useContext} from 'react';
 import {NavLink} from 'react-router-dom';
 import {CartContext} from '../context/cartContext';
-import './Cart.css'
-import Vacio from './imagenes/carritovacio.png';
-import { getFirestore } from '../firebase/index.js'
+import {InfoContext} from '../context/infoContext';
+
 import * as firebase from 'firebase/app';
 import 'firebase/firestore';
+
+import Vacio from './imagenes/carritovacio.png';
 import IdNumber from './IdNumber';
 
+import './estilos/Cart.css'
 
-const Cart = () =>{
+
+const Cart = () => {
     const [agregarCarrito, cart] = useContext(CartContext);
     const infoContext = useContext(InfoContext);
 
-    let newTotalCount=0;
-    let newTotalPrice=0;
+    let newTotalCount = 0;
+    let newTotalPrice = 0;
     let prodList = [];
     let prodListDb = [];
     for (const productId in cart) {
@@ -24,13 +26,22 @@ const Cart = () =>{
         newTotalCount = newTotalCount + count;
         newTotalPrice = newTotalPrice + (price * count);
 
-        prodList.push({id: productId, name: name, price: price, count: count});
-        prodListDb.push({id: productId, title: name, price: price});
-        
+        prodList.push({
+            id: productId,
+            name: name,
+            price: price,
+            count: count
+        });
+        prodListDb.push({
+            id: productId,
+            title: name,
+            price: price
+        });
+
     }
 
     const buyer = infoContext.userData;
-    
+
     const newOrder = {
         buyer: buyer,
         items: prodListDb,
@@ -38,69 +49,63 @@ const Cart = () =>{
         total: newTotalPrice
     };
 
-    if(newTotalCount === 0){
-        return (
-            <div className="cart">
-                <div className="container">
-                    <div className="card text-center">
-                        <img src={Vacio} class="card-img-top" alt="carrito-vacio"/>
-                        <div className="card-body">
-                        <h5 lass="card-title">Tu carrito está vacío</h5>
-                        <button className="btn btn-dark">
-                            <NavLink to={`/`} className="nav-link">Elegir productos</NavLink>
-                        </button>
-                        </div>
-                    </div>
-                </div>
+    if (newTotalCount === 0) {
+        return ( 
+            <div className = "cart">
+                <div className = "container">
+                    <div className = "card text-center" >
+                        <img src = {Vacio} class = "card-img-top"alt = "carrito-vacio"/>
+                        <div className = "card-body" >
+                            <h5 lass = "card-title" > Tu carrito está vacío </h5> 
+                            <button className = "btn btn-dark" >
+                                <NavLink to = {`/`} className = "nav-link" > Elegir productos </NavLink> 
+                            </button> 
+                        </div> 
+                    </div> 
+                </div> 
             </div>
         )
     } else {
 
         let button;
-      if (infoContext.isLogin) {
-        button = <IdNumber  newOrder={newOrder} />;
-      }else{
-        button = <NavLink to={`/login`} className="btn btn-dark">Carga tus datos</NavLink>;
-    }
-    
+        if (infoContext.isLogin) {
+            button = < IdNumber newOrder = {newOrder}/>;
+        } else {
+            button = < NavLink to = {`/login`} className = "btn btn-dark" > Carga tus datos </NavLink>;
+        }
 
-        return(
-            <div className="container">
-                <h2 className="titulo">Mi carrito</h2>
-                <span>Total de productos en el carrito: {newTotalCount}</span>
-                <ul className="list-group">
-                    <li className="list-group-item d-flex justify-content-between align-items-center">
-                        <span>Nombre</span>
-                        <span>Art</span>
-                        <span>Precio</span>
-                        <span> Cant</span>
-                        <span>Sub</span>
-                        
-                    </li>
-                </ul>
-                
-                
-                <ul className="list-group">
-                    {prodList.map((producto) => ( 
-                        <div key={producto.id}>
-                            <li className="list-group-item d-flex justify-content-between align-items-center">
-                                <span>{producto.name}</span>
-                                <p>{producto.id}</p>
-                                <span>${producto.price}</span>
-                                <span className="badge badge-dark badge-pill">{producto.count}</span>
-                                <span>${producto.price * producto.count}</span>
-                                
-                            </li>
-                        </div>
-                  ))}
-                </ul>
-                <span>Precio total de productos en el carrito: ${newTotalPrice}</span>
-                <br/>
 
+        return ( 
+            <div className = "container">
+                <h2 className = "titulo"> Mi carrito </h2> 
+                <table className="table table-bordered table-dark">
+                    <thead>
+                        <tr>
+                            <th scope="col">Total de productos en el carrito: {newTotalCount}</th>   
+                        </tr>
+                    </thead>
+                    <tbody>  
+                        <ul > {prodList.map((producto) => ( 
+                            <div key = {producto.id}>
+                                    <tr className= "productos">
+                                        <td>Prod: {producto.name}</td>
+                                        <td>Art: {producto.id}</td>
+                                        <td>P. Unit: $ {producto.price}</td>
+                                        <td>Cant: {producto.count}</td>
+                                        <td >SubTot: $ {producto.price * producto.count}</td>
+                                    </tr>
+                            </div>))} 
+                        </ul> 
+                    </tbody>
+                    <thead>
+                        <tr>
+                            <th scope="col">Precio total de productos en el carrito: $ {newTotalPrice}</th>
+                        </tr>
+                    </thead>    
+                </table>
+                
                 {button}
 
-                
-                
             </div>
         )
 

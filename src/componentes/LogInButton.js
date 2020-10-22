@@ -1,6 +1,7 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {NavLink} from 'react-router-dom';
-import './CartIcon.css';
+
+import './estilos/CartIcon.css';
 
 function LogInButton(props) {
 

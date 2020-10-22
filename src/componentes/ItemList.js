@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { getFirestore } from '../firebase/index.js'
+import { getFirestore } from '../firebase/index.js';
+
 import Item from "./Item";
-import './ItemList.css';
 import Loading from './Loading';
+
+import './estilos/ItemList.css';
 
 function ItemsList() {
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState("");
+    //const [error, setError] = useState("");
     const [items, setItems] = useState([]);
 
      useEffect(() => {

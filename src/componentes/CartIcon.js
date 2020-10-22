@@ -1,17 +1,18 @@
 import React, {useContext} from 'react';
 import {NavLink} from 'react-router-dom';
-import './CartIcon.css';
 import {CartContext} from '../context/cartContext';
+
+import './estilos/CartIcon.css';
 
 function CartIcon(props) {
 
-  const [agregarCarrito, cart] =useContext(CartContext);
+    const [agregarCarrito, cart] =useContext(CartContext);
 
-  let newTotalCount=0;
-    for (const productId in cart) {
-      const [name, price, count] = cart[productId];
-      newTotalCount = newTotalCount + count;
-    }
+    let newTotalCount=0;
+      for (const productId in cart) {
+          const [name, price, count] = cart[productId];
+          newTotalCount = newTotalCount + count;
+        }
 
       return (
         <div>
@@ -21,8 +22,6 @@ function CartIcon(props) {
             </NavLink>
             <span>{newTotalCount}</span>
 
-            
-
             <NavLink to={`/favs`} className="nav-link"><svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-heart-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path fillRule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
                 </svg>
@@ -30,8 +29,8 @@ function CartIcon(props) {
         </div>
       )
       
-    }
+  }
 
-  export default CartIcon;
+export default CartIcon;
 
   

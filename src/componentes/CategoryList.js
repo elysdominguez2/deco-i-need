@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { getFirestore } from '../firebase/index.js';
 import {useParams} from 'react-router-dom';
+
 import Item from "./Item";
-import './ItemList.css';
 import Loading from './Loading';
 
 function CategoryList() {
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState("");
+    //const [error, setError] = useState("");
     const [items, setItems] = useState([]);
     let {id} = useParams();
 
@@ -21,36 +21,36 @@ function CategoryList() {
        .then((querySnapshot) => {
          if(querySnapshot.size === 0) {
            console.log('No results!');
-         }
+          }
          setItems(querySnapshot.docs.map(doc => {
             return({ id: doc.id, ...doc.data()});
-       }));  
-       }).catch((error) => {
-         console.log("Error searching items", error);
-       }).finally(() => {
-         setLoading(false);
-       });
-     }, []);
+          }));  
+        }).catch((error) => {
+              console.log("Error searching items", error);
+            }).finally(() => {
+            setLoading(false);
+        });
+      }, [id]);
 
      if (!loading) {
        console.log(items)
        return(
            <div className="productos">
-             {items.map(producto => (
-              <div key={producto.id}>
-              <Item producto={producto} />
-              </div>
-            ))}
-          </div>
-       );
+              {items.map(producto => (
+                  <div key={producto.id}>
+                    <Item producto={producto}/>
+                  </div>
+                ))}
+            </div>
+        );
      }
      if (loading) {
        return(
           <div className="esperar">
-           <Loading/>
-         </div>
+            <Loading/>
+          </div>
        );
-     }
-    }
+      }
+  }
     
 export default CategoryList;

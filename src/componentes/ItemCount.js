@@ -1,6 +1,8 @@
 import React from 'react';
+
 import Button from './Button';
-import './ItemCount.css'
+
+import './estilos/ItemCount.css'
 
 function ItemCount(props) {
 

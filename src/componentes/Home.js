@@ -1,16 +1,15 @@
-import React from 'react';
-import './Home.css';
-import Login from './Login';
-import LoginControl from './LoginControl';
+    import React from 'react';
+    import './estilos/Home.css';
+
 
     function Home(props) {
-        return (
-            <div className="Home">
-               
+        return ( 
+            <div className = "Home" >
+
             </div>
         )
 
-      }
-      
+    }
 
-export default Home;
+
+    export default Home;

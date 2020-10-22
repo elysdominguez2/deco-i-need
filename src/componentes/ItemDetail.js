@@ -1,8 +1,10 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState } from "react";
 import {NavLink} from 'react-router-dom';
+
 import ItemCount from "./ItemCount";
-import './ItemDetail.css';
 import BotonAgregar from "./ContadorGlobal";
+
+import './estilos/ItemDetail.css';
 
 
 

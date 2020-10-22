@@ -1,7 +1,9 @@
 import React from "react";
 import {NavLink} from 'react-router-dom';
+
 import Llanto from './imagenes/llanto.gif';
-import './PageNotFound.css'
+
+import './estilos/PageNotFound.css';
 
 
 const PageNotFound = () => (

@@ -1,0 +1,9 @@
+.cart .container{
+    margin: 25px 0 10px 0;
+    max-width: 400px;
+}
+
+.cart .card-body button{
+    margin-left: 0px;
+}
+
