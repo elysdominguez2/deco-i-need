@@ -2,6 +2,8 @@ import React, {useState, useContext} from 'react';
 import { InfoContext } from '../context/infoContext';
 import 'firebase/firestore';
 
+import './estilos/Form.css'
+
 function Form() {
         const [data, setData]= useState({name:'',user: '',email: '',pass: '',tel: ''});
         const infoContext = useContext(InfoContext); 

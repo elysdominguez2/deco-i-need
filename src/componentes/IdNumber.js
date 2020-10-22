@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { getFirestore } from '../firebase/index.js'
+import {NavLink} from 'react-router-dom';
 
 export function IdNumber (props){
         const [orderId, setOrderId] = useState([]);
@@ -26,7 +27,11 @@ export function IdNumber (props){
                             });
         };
 
-    return <button onClick={enviarDatos} className="btn btn-dark">Pagar</button>
+    return (
+        <div>
+            <button onClick={enviarDatos} className="btn btn-dark">Pagar</button>
+        </div>
+    )
 }
 
 export default IdNumber;
