@@ -1,9 +1,5 @@
 import React from "react";
-
-
-
-
-      
+   
    function Favs() {  
      return (  
        <div className= "favs">  

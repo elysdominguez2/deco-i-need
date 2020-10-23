@@ -13,9 +13,10 @@ import Favs from './Favs';
 import CategoryList from './componentes/CategoryList';
 import PageNotFound from './componentes/PageNotFound';
 import Login from './componentes/Form';
-
+import MisCompras from './componentes/MisCompras';
 
 import './App.css';
+
 
 
 function App() {
@@ -50,6 +51,10 @@ function App() {
 
               <Route path="/login">
                   <Login/>
+              </Route>
+
+              <Route path="/miscompras">
+                  <MisCompras/>
               </Route>
 
               <Route component={PageNotFound}/>

@@ -1,11 +1,13 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import { getFirestore } from '../firebase/index.js'
 import {NavLink} from 'react-router-dom';
+import { InfoContext } from '../context/infoContext';
 
 export function IdNumber (props){
         const [orderId, setOrderId] = useState([]);
         const [loading, setLoading] = useState(true);
         const [error, setError] = useState("");
+        const infoContext = useContext(InfoContext);
         
         const enviarDatos = () => {
 
@@ -20,6 +22,7 @@ export function IdNumber (props){
                         setOrderId(id);
                         console.log("Este es tu número de Orden de Compra: " + id);
                         alert("Este es tu número de Orden de Compra: " + id);
+                        infoContext.setMyPurchase(id);
                     }).catch((error) => {
                             setError(error);
                         }).finally(() => {
@@ -30,7 +33,9 @@ export function IdNumber (props){
     return (
         <div>
             <button onClick={enviarDatos} className="btn btn-dark">Pagar</button>
+            < NavLink to = {`/miscompras`} className = "btn btn-dark" > Mis compras </NavLink>;
         </div>
+        
     )
 }
 

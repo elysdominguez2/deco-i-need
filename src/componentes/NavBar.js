@@ -22,6 +22,7 @@ class NavBar extends React.Component {
                         <ul className="navbar-nav">
                             <li className="nav-item">
                                 <a className="nav-link" href="#">Mis compras</a>
+                                < NavLink to = {`/miscompras`} className = "btn btn-dark" > Mis compras </NavLink>
                             </li>
                             <li className="nav-item dropdown">
                                 <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

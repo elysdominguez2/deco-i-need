@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { getFirestore } from '../firebase/index.js'
+import { getFirestore } from '../firebase/index.js';
 
 export const InfoContext = React.createContext([]);
 
@@ -7,6 +7,7 @@ export const InfoProvider = (props) =>{
     
     const [userData, setUserData] = useState({});
     const [isLogin, setIsLogin] = useState(false);
+    const [myPurchase, setMyPurchase] = useState({});
     //const [newEmail, setNewEmail] = useState();
 
     const existeUsuario = (newEmail) => {
@@ -56,7 +57,8 @@ export const InfoProvider = (props) =>{
         saveUserData: saveUserData,
         isLogin: isLogin,
         setIsLogin: setIsLogin,
-        orders:[],
+        myPurchase: myPurchase,
+        setMyPurchase: setMyPurchase,
         test: "hola test",
         existeUsuario: existeUsuario
     };
