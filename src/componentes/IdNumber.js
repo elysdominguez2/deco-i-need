@@ -33,7 +33,7 @@ export function IdNumber (props){
     return (
         <div>
             <button onClick={enviarDatos} className="btn btn-dark">Pagar</button>
-            < NavLink to = {`/miscompras`} className = "btn btn-dark" > Mis compras </NavLink>;
+            < NavLink to = {`/miscompras`} className = "btn btn-dark" > Mis compras </NavLink>
         </div>
         
     )
