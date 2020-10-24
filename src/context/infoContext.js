@@ -10,45 +10,42 @@ export const InfoProvider = (props) =>{
     const [myPurchase, setMyPurchase] = useState({});
     //const [newEmail, setNewEmail] = useState();
 
-    const existeUsuario = (newEmail) => {
-        let usuarioEncontrado = false; 
-        const db = getFirestore();    
-            db.collection("usuarios")
-            .where("email", "==", newEmail)
-            .onSnapshot(querySnapshot => {
-    
-                querySnapshot.forEach(document => console.log('El usuario ya existe'));
-                usuarioEncontrado = true;
-            });
-    
-        return usuarioEncontrado;
-    }
-
     const saveUserData = (data) => {
         const db = getFirestore();
         const usuarios = db.collection("usuarios");
-        //if(setNewEmail !== email){
+        
+        const newEmail = data.email;
 
-        if (existeUsuario(data.email)) {
-            
-        } else {
-            usuarios.add(data)
-            .then(({ id }) => {
-                //setUsuarioId(id);
-                console.log("Este usuario esta logueado " + id);
-                alert("Este usuario esta logueado: " + id);
-                setUserData(data);
-                setIsLogin(true);
+        usuarios.where("email", "==", newEmail)
+            .get()
+            .then(querySnapshot => {
 
-            }).catch((error) => {
-                //setError(error);
-            }).finally(() => {
-                //setLoading(false);
+                if(querySnapshot.size === 0) {
+                    console.log('Ningun usuario encontrado');
+                    usuarios.add(data)
+                    .then(({ id }) => {
+                        //setUsuarioId(id);
+                        console.log("Este usuario esta logueado " + id);
+                        alert("Este usuario esta logueado: " + id);
+                        setUserData(data);
+                        setIsLogin(true);
+
+                    }).catch((error) => {
+                        //setError(error);
+                    }).finally(() => {
+                        //setLoading(false);
+                    });
+                    //} else{
+                    //   console.log('Ya existe una cuenta con ese email, por favor logueate');
+                    //}
+
+
+                } else {
+                    alert("Ya existe un usuario con email: " + newEmail);
+                }
+                
             });
-            //} else{
-            //   console.log('Ya existe una cuenta con ese email, por favor logueate');
-            //}
-        }
+
     };
     
     const miContexto = {
@@ -59,8 +56,7 @@ export const InfoProvider = (props) =>{
         setIsLogin: setIsLogin,
         myPurchase: myPurchase,
         setMyPurchase: setMyPurchase,
-        test: "hola test",
-        existeUsuario: existeUsuario
+        test: "hola test"
     };
 
     return(
