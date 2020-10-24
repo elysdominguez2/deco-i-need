@@ -47,11 +47,44 @@ export const InfoProvider = (props) =>{
             });
 
     };
+
+    const login = (data) => {
+        const db = getFirestore();
+        const usuarios = db.collection("usuarios");
+        
+        const emailLogin = data.emailLogin;
+        const passLogin = data.passLogin;
+
+        usuarios.where("email", "==", emailLogin)
+            .get()
+            .then(querySnapshot => {
+
+                if(querySnapshot.size === 0) {
+                    alert("Email o password incorrectos.");
+
+                } else {
+                    querySnapshot.forEach(function(doc) {
+                        const dataFromDb = doc.data();
+                        if (passLogin === dataFromDb.pass) {
+                            setUserData(dataFromDb);
+                            setIsLogin(true);
+                        } else {
+                            alert("Email o password incorrectos.");
+                        }
+                        
+                    });
+            
+                }
+                
+            });
+
+    };
     
     const miContexto = {
         userData: userData,
         setUserData: setUserData,
         saveUserData: saveUserData,
+        login: login,
         isLogin: isLogin,
         setIsLogin: setIsLogin,
         myPurchase: myPurchase,

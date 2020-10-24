@@ -20,9 +20,10 @@ export function IdNumber (props){
                 orders.add(newOrder)
                 .then(({ id }) => {
                         setOrderId(id);
-                        console.log("Este es tu número de Orden de Compra: " + id);
-                        alert("Este es tu número de Orden de Compra: " + id);
-                        infoContext.setMyPurchase(id);
+                            console.log("Este es tu número de Orden de Compra: " + id);
+                            alert("Este es tu número de Orden de Compra: " + id);
+                            infoContext.setMyPurchase(id);
+                        
                     }).catch((error) => {
                             setError(error);
                         }).finally(() => {
@@ -40,4 +41,5 @@ export function IdNumber (props){
 }
 
 export default IdNumber;
+
 

@@ -13,12 +13,20 @@ function Form() {
                 ...data, [e.target.name] : e.target.value
             })
         }
+
+        const handleLoginSubmit = (e) => {
+            e.preventDefault();
+            console.log('mostrar datos:' + data.emailLogin, data.passLogin);
+            console.log(data);
+            //e.target.reset();
+            infoContext.login(data);
+        }
     
         const handleSubmit = (e) => {
             e.preventDefault();
             console.log('mostrar datos:' + data.name, data.user, data.email,  data.pass, data.tel);
             console.log(data);
-            e.target.reset();
+            //e.target.reset();
             infoContext.saveUserData(data);
         }
         
@@ -33,6 +41,13 @@ function Form() {
             }   
         }
 
+        if (infoContext.isLogin) {
+            return (
+                <h2>Ya estás logueado</h2>
+            );
+
+        } else {
+
         return(
 
             <div className="container">
@@ -40,14 +55,14 @@ function Form() {
                     <div className="col-sm-6">
                         <div className="card-body">
                             <h6 className="card-title">Ya tienes una cuenta?</h6>
-                                <form onSubmit={handleSubmit}>
+                                <form onSubmit={handleLoginSubmit}>
                                     <div className="form-group">
                                         <label htmlFor="inputEmail1">Email*</label>
-                                        <input type="email" name="email" onChange={handleChange} className="form-control" id="inputEmail1" aria-describedby="emailHelp" required/>
+                                        <input type="email" name="emailLogin" onChange={handleChange} className="form-control" id="inputEmail1" aria-describedby="emailHelp" required/>
                                     </div>
                                     <div className="form-group">
                                         <label htmlFor="inputPassword1">Password*</label>
-                                        <input type="password" name="pass" onChange={handleChange} className="form-control" id="inputPassword1" required/>
+                                        <input type="password" name="passLogin" onChange={handleChange} className="form-control" id="inputPassword1" required/>
                                     </div>
 
                                     <button type="submit" className="btn btn-dark">Login</button>
@@ -98,6 +113,8 @@ function Form() {
 
 
         );
+
+        }
     
     }
 
