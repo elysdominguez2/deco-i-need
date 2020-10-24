@@ -1,5 +1,6 @@
 import React, {useState, useContext} from 'react';
 import { InfoContext } from '../context/infoContext';
+import {NavLink} from 'react-router-dom';
 import 'firebase/firestore';
 
 import './estilos/Form.css'
@@ -43,7 +44,15 @@ function Form() {
 
         if (infoContext.isLogin) {
             return (
-                <h2>Ya estás logueado</h2>
+                <div>
+                    <h2>Ya estás logueado puedes seguir con tus compras</h2>
+                    <button className = "btn btn-dark" >
+                        <NavLink to = {`/`} className = "nav-link" > Elegir productos </NavLink> 
+                    </button> 
+                    <button className="btn btn-dark">
+                      <NavLink to={`/cart`} className="nav-link">Ir al Carrito</NavLink>
+                    </button>
+                </div>
             );
 
         } else {

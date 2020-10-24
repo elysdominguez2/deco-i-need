@@ -84,9 +84,8 @@ const Cart = () => {
                             <th scope="col">Total de productos en el carrito: {newTotalCount}</th>   
                         </tr>
                     </thead>
-                    <tbody>  
-                        <ul > {prodList.map((producto) => ( 
-                            <div key = {producto.id}>
+                        <> {prodList.map((producto) => ( 
+                            <tbody key = {producto.id}>
                                     <tr className= "productos">
                                         <td>Prod: {producto.name}</td>
                                         <td>Art: {producto.id}</td>
@@ -94,9 +93,9 @@ const Cart = () => {
                                         <td>Cant: {producto.count}</td>
                                         <td >SubTot: $ {producto.price * producto.count}</td>
                                     </tr>
-                            </div>))} 
-                        </ul> 
-                    </tbody>
+                            </tbody>))} 
+                        </> 
+
                     <thead>
                         <tr>
                             <th scope="col">Precio total de productos en el carrito: $ {newTotalPrice}</th>

@@ -7,7 +7,7 @@ export const InfoProvider = (props) =>{
     
     const [userData, setUserData] = useState({});
     const [isLogin, setIsLogin] = useState(false);
-    const [myPurchase, setMyPurchase] = useState({});
+    const [myPurchase, setMyPurchase] = useState();
     //const [newEmail, setNewEmail] = useState();
 
     const saveUserData = (data) => {

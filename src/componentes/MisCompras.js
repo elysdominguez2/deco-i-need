@@ -29,9 +29,29 @@ function MisCompras() {
             price: price,
             count: count
         });
+    }
         
 
       if (infoContext.isLogin) {
+
+
+        if(!infoContext.myPurchase){
+            return ( 
+                <div className = "cart">
+                    <div className = "container">
+                        <div className = "card text-center" >
+                            <img src = {Vacio} className = "card-img-top"alt = "carrito-vacio"/>
+                            <div className = "card-body" >
+                                <h5 className = "card-title" > No tienes compras realizadas </h5> 
+                                <button className = "btn btn-dark" >
+                                    <NavLink to = {`/`} className = "nav-link" > Elegir productos </NavLink> 
+                                </button> 
+                            </div> 
+                        </div> 
+                    </div> 
+                </div>
+            )
+        } else {
           
             return (
                 <div className="container">
@@ -41,7 +61,7 @@ function MisCompras() {
                         <div className="card-header">Id de compra:  {infoContext.myPurchase}</div>
                         <div>  
                             <ul className="list-group list-group-flush"> {prodList.map((producto) => ( 
-                                <div key = {producto.id}>
+                                <ul key = {producto.id}>
                                         
                                             <li className="list-group-item">Prod: {producto.name}</li>
                                             <li className="list-group-item">Art: {producto.id}</li>
@@ -50,7 +70,7 @@ function MisCompras() {
                                             <li className="list-group-item" >SubTot: $ {producto.price * producto.count}</li>
                                             
                                         
-                                </div>))} 
+                                </ul>))} 
 
                                 <div className="card-footer">Total: $ {newTotalPrice}</div>
                             
@@ -60,7 +80,10 @@ function MisCompras() {
 
                     </div>
                 </div>
-        ); } else{
+            ); 
+        }
+            
+        } else{
 
             return (
                 <div>
@@ -69,23 +92,6 @@ function MisCompras() {
                 </div>
             
             )}
-        } if(newTotalCount === 0){
-            return ( 
-                <div className = "cart">
-                    <div className = "container">
-                        <div className = "card text-center" >
-                            <img src = {Vacio} class = "card-img-top"alt = "carrito-vacio"/>
-                            <div className = "card-body" >
-                                <h5 lass = "card-title" > No tienes compras realizadas </h5> 
-                                <button className = "btn btn-dark" >
-                                    <NavLink to = {`/`} className = "nav-link" > Elegir productos </NavLink> 
-                                </button> 
-                            </div> 
-                        </div> 
-                    </div> 
-                </div>
-            )
-        }
      
   };
 
