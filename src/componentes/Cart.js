@@ -35,7 +35,8 @@ const Cart = () => {
         prodListDb.push({
             id: productId,
             title: name,
-            price: price
+            price: price,
+            count: count
         });
 
     }
@@ -56,7 +57,7 @@ const Cart = () => {
                     <div className = "card text-center" >
                         <img src = {Vacio} class = "card-img-top"alt = "carrito-vacio"/>
                         <div className = "card-body" >
-                            <h5 lass = "card-title" > Tu carrito está vacío </h5> 
+                            <h5 className = "card-title" > Tu carrito está vacío </h5> 
                             <button className = "btn btn-dark" >
                                 <NavLink to = {`/`} className = "nav-link" > Elegir productos </NavLink> 
                             </button> 

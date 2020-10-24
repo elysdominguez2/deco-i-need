@@ -46,7 +46,8 @@ function MisCompras() {
                             newProdList.push({
                                 id: item.id,
                                 name: item.title,
-                                price: item.price
+                                price: item.price,
+                                count: item.count
                             }); 
         
                         })
@@ -99,8 +100,8 @@ function MisCompras() {
                                                                 <li className="list-group-item">Prod: {producto.name}</li>
                                                                 <li className="list-group-item">Art: {producto.id}</li>
                                                                 <li className="list-group-item">P. Unit: $ {producto.price}</li>
-                                                                {/* <li className="list-group-item">Cant: {producto.count}</li> */}
-                                                                {/* <li className="list-group-item" >SubTot: $ {producto.price * producto.count}</li> */}
+                                                                <li className="list-group-item">Cant: {producto.count}</li>
+                                                                <li className="list-group-item" >SubTot: $ {producto.price * producto.count}</li>
                                                                 
                                                             
                                                     </ul>))} 
