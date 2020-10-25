@@ -12,7 +12,6 @@ function ItemDetailCont() {
     const [producto, setProducto] = useState([]);
     const [productoEncontrado, setProductoEncontrado] = useState(false);
     const [loading, setLoading] = useState(true);
-    //const [error, setError] = useState("");
     let {id} = useParams();
 
     useEffect (() => {

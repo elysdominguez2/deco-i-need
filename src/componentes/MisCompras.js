@@ -39,9 +39,6 @@ function MisCompras() {
                         let newProdList = [];
                         orderDb.items.forEach(item => {
                             console.log("Item: " + item.title);
-        
-                            // newTotalCount = newTotalCount + count;
-                            // newTotalPrice = newTotalPrice + (price * count);
                     
                             newProdList.push({
                                 id: item.id,
@@ -87,24 +84,24 @@ function MisCompras() {
             if (hayCompras) {
                 return (
                     <div className="container">
+                        <h2>Mis compras realizadas</h2>
                             {
                                 orderList.map((order) => (
                                     <div className="compras" key = {order.id}>
                                     
-                                        <div className= "card">
+                                        <div className= "card bg-dark">
                                             <div className="card-header">Id de compra:  {order.id}</div>
                                             <div>  
                                                 <ul className="list-group list-group-flush"> {order.prodList.map((producto) => ( 
-                                                    <ul key = {producto.id}>
+                                                    <span key = {producto.id}>
                                                             
-                                                                <li className="list-group-item">Prod: {producto.name}</li>
-                                                                <li className="list-group-item">Art: {producto.id}</li>
-                                                                <li className="list-group-item">P. Unit: $ {producto.price}</li>
-                                                                <li className="list-group-item">Cant: {producto.count}</li>
-                                                                <li className="list-group-item" >SubTot: $ {producto.price * producto.count}</li>
-                                                                
+                                                                <li className="list-group-item bg-secondary">Prod: {producto.name}</li>
+                                                                <li className="list-group-item bg-secondary">Art: {producto.id}</li>
+                                                                <li className="list-group-item bg-secondary">P. Unit: $ {producto.price}</li>
+                                                                <li className="list-group-item bg-secondary">Cant: {producto.count}</li>
+                                                                <li className="list-group-item bg-secondary" >SubTot: $ {producto.price * producto.count}</li>
                                                             
-                                                    </ul>))} 
+                                                    </span>))} 
                     
                                                     <div className="card-footer">Total: $ {order.total}</div>
                                                 
@@ -113,7 +110,6 @@ function MisCompras() {
                                         </div>
                                     </div>
                                     
-
                                 ))
                             }
                     </div>
@@ -121,18 +117,20 @@ function MisCompras() {
 
             } else {
                 return ( 
-                    <div className = "cart">
-                        <div className = "container">
-                            <div className = "card text-center" >
-                                <img src = {Vacio} className = "card-img-top"alt = "carrito-vacio"/>
-                                <div className = "card-body" >
-                                    <h5 className = "card-title" > No tienes compras realizadas </h5> 
-                                    <button className = "btn btn-dark" >
-                                        <NavLink to = {`/`} className = "nav-link" > Elegir productos </NavLink> 
-                                    </button> 
+                    <div className= "container">
+                        <div className = "cart">
+                            <div className = "container">
+                                <div className = "card text-center" >
+                                    <img src = {Vacio} className = "card-img-top"alt = "carrito-vacio"/>
+                                    <div className = "card-body" >
+                                        <h5 className = "card-title" > No tienes compras realizadas </h5> 
+                                        <button className = "btn btn-dark" >
+                                            <NavLink to = {`/`} className = "nav-link" > Elegir productos </NavLink> 
+                                        </button> 
+                                    </div> 
                                 </div> 
                             </div> 
-                        </div> 
+                        </div>
                     </div>
                 )
             }
@@ -140,9 +138,8 @@ function MisCompras() {
         }
             
     } else{
-        // No esta logueado
         return (
-            <div>
+            <div className="container">
                 <p>Necesitas estar logueado</p>
                 <Form/>
             </div>

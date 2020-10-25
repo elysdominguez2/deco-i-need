@@ -8,7 +8,6 @@ import './estilos/ItemList.css';
 
 function ItemsList() {
     const [loading, setLoading] = useState(true);
-    //const [error, setError] = useState("");
     const [items, setItems] = useState([]);
 
     useEffect(() => {

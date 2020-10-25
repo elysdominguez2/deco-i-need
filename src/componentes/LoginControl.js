@@ -13,21 +13,15 @@ function LoginControl() {
     const infoContext = useContext(InfoContext);
     const [agregarCarrito, cart, resetCarrito] = useContext(CartContext);
     
-    // const [isLogin, setIsLogin] = useState(false);
-
     const handleLoginClick = () => {
-        // setIsLogin({isLoggedIn: true});
+
       };
     const handleLogoutClick =() => {
-        // setIsLogin({isLoggedIn: false});
         infoContext.setIsLogin(false);
         infoContext.setMyPurchase(undefined);
         resetCarrito();
       }
     
- 
-    // const isLoggedIn = () => {
-    //     let button;
     let button;
       if (infoContext.isLogin) {
           button = <LogOutButton logOut={handleLogoutClick}/>;

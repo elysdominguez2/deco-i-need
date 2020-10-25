@@ -1,9 +1,8 @@
 import React, {useState, useContext} from 'react';
 import { getFirestore } from '../firebase/index.js'
-import {NavLink} from 'react-router-dom';
 import { InfoContext } from '../context/infoContext';
 import { CartContext } from '../context/cartContext.js';
-import MisCompras from './MisCompras.js';
+
 
 export function IdNumber (props){
         const [orderId, setOrderId] = useState([]);
@@ -37,8 +36,7 @@ export function IdNumber (props){
 
     return (
         <div>
-            <button onClick={enviarDatos} className="btn btn-dark">Pagar</button>
-            < NavLink to = {`/miscompras`} className = "btn btn-dark" > Mis compras </NavLink>
+            <button onClick={enviarDatos} className = "nav-link btn btn-dark">Pagar</button>
         </div>
         
     )

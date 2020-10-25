@@ -8,7 +8,6 @@ export const InfoProvider = (props) =>{
     const [userData, setUserData] = useState({});
     const [isLogin, setIsLogin] = useState(false);
     const [myPurchase, setMyPurchase] = useState();
-    //const [newEmail, setNewEmail] = useState();
 
     const saveUserData = (data) => {
         const db = getFirestore();
@@ -24,31 +23,24 @@ export const InfoProvider = (props) =>{
                     console.log('Ningun usuario encontrado');
                     usuarios.add(data)
                     .then(({ id }) => {
-                        //setUsuarioId(id);
                         console.log("Este usuario esta logueado " + id);
                         alert("Este usuario esta logueado: " + id);
                         setUserData(data);
                         setIsLogin(true);
 
                     }).catch((error) => {
-                        //setError(error);
+                      
                     }).finally(() => {
-                        //setLoading(false);
+                       
                     });
-                    //} else{
-                    //   console.log('Ya existe una cuenta con ese email, por favor logueate');
-                    //}
-
-
+                    
                 } else {
                     alert("Ya existe un usuario con email: " + newEmail);
                 }
-                
             });
-
     };
 
-    const login = (data) => {
+        const login = (data) => {
         const db = getFirestore();
         const usuarios = db.collection("usuarios");
         
@@ -71,13 +63,9 @@ export const InfoProvider = (props) =>{
                         } else {
                             alert("Email o password incorrectos.");
                         }
-                        
                     });
-            
                 }
-                
             });
-
     };
     
     const miContexto = {

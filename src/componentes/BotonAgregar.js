@@ -14,7 +14,7 @@ function BotonAgregar(props) {
       }
     
     return (
-          <button className="btn btn-dark" onClick={enviarACarrito}>
+            <button className="btn btn-dark" onClick={enviarACarrito}>
               Agregar {props.count} al carrito
             </button>
         );

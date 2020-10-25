@@ -5,11 +5,9 @@ import { CartProvider } from './context/cartContext';
 import { InfoProvider } from './context/infoContext';
 
 import NavBar from './componentes/NavBar.js'
-import Home from './componentes/Home.js'
 import ItemsList from './componentes/ItemList.js'
 import ItemDetailCont from './componentes/ItemDetailContainer';
 import Cart from './componentes/Cart';
-import Favs from './Favs';
 import CategoryList from './componentes/CategoryList';
 import PageNotFound from './componentes/PageNotFound';
 import Login from './componentes/Form';
@@ -29,7 +27,6 @@ function App() {
             <Switch>
 
               <Route exact path="/">
-                <Home name="Elys"/>
                 <ItemsList/>
               </Route>
 
@@ -39,10 +36,6 @@ function App() {
               
               <Route path="/cart">
                 <Cart/>
-              </Route>
-              
-              <Route path="/favs">
-                <Favs/>
               </Route>
 
               <Route path="/category/:id">

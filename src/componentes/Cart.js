@@ -55,7 +55,16 @@ const Cart = () => {
 
         if (infoContext.myPurchase) {
             return (
-                <h2>Gracias por su compra. Su id de compra es {infoContext.myPurchase}</h2>
+                <div className= "container">
+                    <h2>Gracias por su compra</h2>
+                    <h3>Su número orden de compra es:  {infoContext.myPurchase}</h3>
+                    <button className = "btn btn-dark" >
+                        < NavLink to = {`/miscompras`} className = "nav-link" > Ver mis compras </NavLink> 
+                    </button>
+                    <button className = "btn btn-dark" >
+                        <NavLink to = {`/`} className = "nav-link" > Volver a comprar </NavLink> 
+                    </button>
+                </div>
             )
 
         } else {
@@ -63,7 +72,7 @@ const Cart = () => {
                 <div className = "cart">
                     <div className = "container">
                         <div className = "card text-center" >
-                            <img src = {Vacio} class = "card-img-top"alt = "carrito-vacio"/>
+                            <img src = {Vacio} className = "card-img-top"alt = "carrito-vacio"/>
                             <div className = "card-body" >
                                 <h5 className = "card-title" > Tu carrito está vacío </h5> 
                                 <button className = "btn btn-dark" >
@@ -82,10 +91,9 @@ const Cart = () => {
         if (infoContext.isLogin) {
             button = < IdNumber newOrder = {newOrder}/>;
         } else {
-            button = < NavLink to = {`/login`} className = "btn btn-dark" > Carga tus datos </NavLink>;
+            button = < NavLink to = {`/login`} className = "btn btn-dark nav-link" > Carga tus datos </NavLink>;
         }
-
-
+ 
         return ( 
             <div className = "container">
                 <h2 className = "titulo"> Mi carrito </h2> 

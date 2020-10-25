@@ -7,7 +7,6 @@ import Loading from './Loading';
 
 function CategoryList() {
     const [loading, setLoading] = useState(true);
-    //const [error, setError] = useState("");
     const [items, setItems] = useState([]);
     let {id} = useParams();
 

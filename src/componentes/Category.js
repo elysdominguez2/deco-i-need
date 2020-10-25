@@ -5,7 +5,6 @@ import { getFirestore } from '../firebase/index.js'
 
 function Category() {
     const [loading, setLoading] = useState(true);
-    //const [error, setError] = useState("");
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {

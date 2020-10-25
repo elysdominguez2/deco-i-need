@@ -19,7 +19,6 @@ function Form() {
             e.preventDefault();
             console.log('mostrar datos:' + data.emailLogin, data.passLogin);
             console.log(data);
-            //e.target.reset();
             infoContext.login(data);
         }
     
@@ -27,7 +26,6 @@ function Form() {
             e.preventDefault();
             console.log('mostrar datos:' + data.name, data.user, data.email,  data.pass, data.tel);
             console.log(data);
-            //e.target.reset();
             infoContext.saveUserData(data);
         }
         
@@ -44,7 +42,7 @@ function Form() {
 
         if (infoContext.isLogin) {
             return (
-                <div>
+                <div className="container">
                     <h2>Ya estás logueado puedes seguir con tus compras</h2>
                     <button className = "btn btn-dark" >
                         <NavLink to = {`/`} className = "nav-link" > Elegir productos </NavLink> 
