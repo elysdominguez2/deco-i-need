@@ -24,7 +24,6 @@ export const InfoProvider = (props) =>{
                     usuarios.add(data)
                     .then(({ id }) => {
                         console.log("Este usuario esta logueado " + id);
-                        alert("Este usuario esta logueado: " + id);
                         setUserData(data);
                         setIsLogin(true);
 
