@@ -27,8 +27,12 @@ const CartProvider = (props) =>{
 
     };
 
+    const resetCarrito = () => {
+        setCart({});
+    }
+
     return(
-        <CartContext.Provider value={[agregarCarrito, cart]}>
+        <CartContext.Provider value={[agregarCarrito, cart, resetCarrito]}>
             {props.children}
         </CartContext.Provider>
     )

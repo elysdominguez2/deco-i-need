@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { InfoContext } from '../context/infoContext';
+import { CartContext } from '../context/cartContext';
 
 import LogOutButton from './LogOutButton';
 import LogInButton from './LogInButton';
@@ -10,6 +11,7 @@ import './estilos/LoginControl.css';
 function LoginControl() {
     
     const infoContext = useContext(InfoContext);
+    const [agregarCarrito, cart, resetCarrito] = useContext(CartContext);
     
     // const [isLogin, setIsLogin] = useState(false);
 
@@ -19,6 +21,8 @@ function LoginControl() {
     const handleLogoutClick =() => {
         // setIsLogin({isLoggedIn: false});
         infoContext.setIsLogin(false);
+        infoContext.setMyPurchase(undefined);
+        resetCarrito();
       }
     
  

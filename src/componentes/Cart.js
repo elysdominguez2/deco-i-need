@@ -51,21 +51,31 @@ const Cart = () => {
     };
 
     if (newTotalCount === 0) {
-        return ( 
-            <div className = "cart">
-                <div className = "container">
-                    <div className = "card text-center" >
-                        <img src = {Vacio} class = "card-img-top"alt = "carrito-vacio"/>
-                        <div className = "card-body" >
-                            <h5 className = "card-title" > Tu carrito está vacío </h5> 
-                            <button className = "btn btn-dark" >
-                                <NavLink to = {`/`} className = "nav-link" > Elegir productos </NavLink> 
-                            </button> 
+
+
+        if (infoContext.myPurchase) {
+            return (
+                <h2>Gracias por su compra. Su id de compra es {infoContext.myPurchase}</h2>
+            )
+
+        } else {
+            return ( 
+                <div className = "cart">
+                    <div className = "container">
+                        <div className = "card text-center" >
+                            <img src = {Vacio} class = "card-img-top"alt = "carrito-vacio"/>
+                            <div className = "card-body" >
+                                <h5 className = "card-title" > Tu carrito está vacío </h5> 
+                                <button className = "btn btn-dark" >
+                                    <NavLink to = {`/`} className = "nav-link" > Elegir productos </NavLink> 
+                                </button> 
+                            </div> 
                         </div> 
                     </div> 
-                </div> 
-            </div>
-        )
+                </div>
+            )
+        }
+        
     } else {
 
         let button;
